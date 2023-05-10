@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PersonalCompetitionType } from '../../../domain/competition-type';
 import { PersonalCompetitionResult } from '../../../domain/personal-competition-result';
+import { AppThunk } from '../types';
+import { RersonalCompetitionResultLoaderFromGoogleSheets } from '../../../infrastructure/personal-competition-result-loader-from-google-sheets';
 
 interface DataByType {
     isFetching: boolean;
@@ -51,3 +53,18 @@ const personalCompetitionResultSlice = createSlice({
 export const { request, recieve } = personalCompetitionResultSlice.actions;
 
 export default personalCompetitionResultSlice.reducer;
+
+// const personalCompetitions = [PersonalCompetitionType.GroupABoys, PersonalCompetitionType.GroupAGirls, PersonalCompetitionType.GroupBBoys, PersonalCompetitionType.GroupBGirls];
+// const personalCompetitionResultLoader = new RersonalCompetitionResultLoaderFromGoogleSheets();
+// personalCompetitions.forEach(async (competitionType) => {
+//     store.dispatch(request(competitionType));
+//     const data = await personalCompetitionResultLoader.loadData(competitionType);
+//     store.dispatch(recieve({ key: competitionType, data }));
+// });
+
+export const loadPersonalCompetitionResult = (competitionType: PersonalCompetitionType): AppThunk => async (dispatch) => {
+    dispatch(request(competitionType));
+    const personalCompetitionResultLoader = new RersonalCompetitionResultLoaderFromGoogleSheets();
+    const data = await personalCompetitionResultLoader.loadData(competitionType);
+    dispatch(recieve({ key: competitionType, data }));
+};

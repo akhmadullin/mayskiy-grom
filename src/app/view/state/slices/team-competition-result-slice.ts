@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TeamCompetitionType } from '../../../domain/competition-type';
 import { TeamCompetitionResult } from '../../../domain/team-competition-result';
+import { AppThunk } from '../types';
+import { TeamCompetitionResultLoaderFromGoogleSheets } from '../../../infrastructure/team-competition-result-loader-from-google-sheets';
 
 interface DataByType {
     isFetching: boolean;
@@ -49,3 +51,10 @@ const teamCompetitionResultSlice = createSlice({
 export const { request, recieve } = teamCompetitionResultSlice.actions;
 
 export default teamCompetitionResultSlice.reducer;
+
+export const loadTeamCompetitionResult = (competitionType: TeamCompetitionType): AppThunk => async (dispatch) => {
+    dispatch(request(competitionType));
+    const teamCompetitionResultLoader = new TeamCompetitionResultLoaderFromGoogleSheets();
+    const data = await teamCompetitionResultLoader.loadData(competitionType);
+    dispatch(recieve({ key: competitionType, data }));
+};
