@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { PersonalCompetitionResult, PersonalCompetitionResultItem } from '../../domain/personal-competition-result';
+import { PersonalCompetitionResult, PersonalCompetitionResultItem } from '../../../../domain/personal-competition-result';
 
 interface PersonalCompetitionResultTableProps {
     data: PersonalCompetitionResult;

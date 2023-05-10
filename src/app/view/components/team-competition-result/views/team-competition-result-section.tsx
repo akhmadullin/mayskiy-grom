@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { TeamCompetitionResult } from '../../domain/team-competition-result';
+import { TeamCompetitionResult } from '../../../../domain/team-competition-result';
 import TeamCompetitionResultTable from './team-competition-result-table';
 
-interface TeamCompetitionResultSectionProps {
+export interface TeamCompetitionResultSectionProps {
     title: string;
     data: TeamCompetitionResult
 };

@@ -7,7 +7,7 @@ interface Link {
 
 const links: Link[] = [
     {
-        caption: 'Группа А',
+        caption: 'Группа  A',
         url: '#group-a',
     },
     {

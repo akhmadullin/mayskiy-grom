@@ -2,7 +2,7 @@
 
 interface TeamMember {
     surnameAndName: string;
-    personalTime: string
+    personalTime: string;
 }
 
 export interface TeamCompetitionResultItem {

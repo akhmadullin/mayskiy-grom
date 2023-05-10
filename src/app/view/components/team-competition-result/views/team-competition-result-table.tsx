@@ -1,5 +1,5 @@
 import React, { FC, Fragment } from 'react';
-import { TeamCompetitionResult, TEAM_MEMBERS_COUNT } from '../../domain/team-competition-result';
+import { TeamCompetitionResult, TEAM_MEMBERS_COUNT } from '../../../../domain/team-competition-result';
 
 interface TeamCompetitionResultTableProps {
     data: TeamCompetitionResult;
