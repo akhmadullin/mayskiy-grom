@@ -22,6 +22,6 @@
     "redux-logger": "3.0.6"
   },
   "alias": {
-    "process": "false"
+    "process": "process/browser.js"
   } 
 }
