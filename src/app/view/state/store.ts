@@ -12,14 +12,14 @@ const store = configureStore({
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
-// const personalCompetitions = [PersonalCompetitionType.GroupABoys, PersonalCompetitionType.GroupAGirls, PersonalCompetitionType.GroupBBoys, PersonalCompetitionType.GroupBGirls];
-// personalCompetitions.forEach((competitionType) => {
-//     store.dispatch(loadPersonalCompetitionResult(competitionType));
-// });
+const personalCompetitions = [PersonalCompetitionType.GroupABoys, PersonalCompetitionType.GroupAGirls, PersonalCompetitionType.GroupBBoys, PersonalCompetitionType.GroupBGirls];
+personalCompetitions.forEach((competitionType) => {
+    store.dispatch(loadPersonalCompetitionResult(competitionType));
+});
 
-// const teamCompetitions = [TeamCompetitionType.GroupA, TeamCompetitionType.GroupB];
-// teamCompetitions.forEach((competitionType) => {
-//     store.dispatch(loadTeamCompetitionResult(competitionType));
-// });
+const teamCompetitions = [TeamCompetitionType.GroupA, TeamCompetitionType.GroupB];
+teamCompetitions.forEach((competitionType) => {
+    store.dispatch(loadTeamCompetitionResult(competitionType));
+});
 
 export default store;

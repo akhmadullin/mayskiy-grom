@@ -3,6 +3,7 @@ import { TeamCompetitionType } from '../../../domain/competition-type';
 import { TeamCompetitionResult } from '../../../domain/team-competition-result';
 import { AppThunk } from '../types';
 import { TeamCompetitionResultLoaderFromGoogleSheets } from '../../../infrastructure/team-competition-result-loader-from-google-sheets';
+import { StubTeamCompetitionResultLoader } from '../../../infrastructure/stub-team-competition-result-loader';
 
 interface DataByType {
     isFetching: boolean;
@@ -54,7 +55,8 @@ export default teamCompetitionResultSlice.reducer;
 
 export const loadTeamCompetitionResult = (competitionType: TeamCompetitionType): AppThunk => async (dispatch) => {
     dispatch(request(competitionType));
-    const teamCompetitionResultLoader = new TeamCompetitionResultLoaderFromGoogleSheets();
+    // const teamCompetitionResultLoader = new TeamCompetitionResultLoaderFromGoogleSheets();
+    const teamCompetitionResultLoader = new StubTeamCompetitionResultLoader();
     const data = await teamCompetitionResultLoader.loadData(competitionType);
     dispatch(recieve({ key: competitionType, data }));
 };
