@@ -20,33 +20,35 @@ const tableHeadeingsList = Object.values(tableHeadeings);
 
 const PersonalCompetitionResultTable: FC<PersonalCompetitionResultTableProps> = ({ data }) => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    {tableHeadeingsList.map((heading) => {
+        <div className="table-wrapper">
+            <table className="table">
+                <thead>
+                    <tr>
+                        {tableHeadeingsList.map((heading) => {
+                            return (
+                                <th key={heading}>
+                                    {heading}
+                                </th>
+                            );
+                        })}
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map(({ startNumber, person, team, time, fail, place }) => {
                         return (
-                            <th key={heading}>
-                                {heading}
-                            </th>
+                            <tr key={startNumber}>
+                                <td>{startNumber}</td>
+                                <td>{person}</td>
+                                <td>{team}</td>
+                                <td>{time}</td>
+                                <td>{fail}</td>
+                                <td>{place}</td>
+                            </tr>
                         );
                     })}
-                </tr>
-            </thead>
-            <tbody>
-                {data.map(({ startNumber, person, team, time, fail, place }) => {
-                    return (
-                        <tr key={startNumber}>
-                            <td>{startNumber}</td>
-                            <td>{person}</td>
-                            <td>{team}</td>
-                            <td>{time}</td>
-                            <td>{fail}</td>
-                            <td>{place}</td>
-                        </tr>
-                    );
-                })}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     );
 };
 

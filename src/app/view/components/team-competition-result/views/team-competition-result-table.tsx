@@ -19,54 +19,56 @@ const tableHeadeingsList = Object.values(tableHeadeings);
 
 const TeamCompetitionResultTable: FC<TeamCompetitionResultTableProps> = ({ data }) => {
     return (
-        <table>
-            <thead>
-                <tr>
-                    {tableHeadeingsList.map((heading) => {
+        <div className="table-wrapper">
+            <table className="table">
+                <thead>
+                    <tr>
+                        {tableHeadeingsList.map((heading) => {
+                            return (
+                                <th key={heading}>
+                                    {heading}
+                                </th>
+                            );
+                        })}
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map(({ teamName, teamMembers, totalTime, place }) => {
+                        const [firstTeamMember, ...otherTeamMembers] = teamMembers;
                         return (
-                            <th key={heading}>
-                                {heading}
-                            </th>
+                            <Fragment key={`${teamName}-${place}`}>
+                                <tr>
+                                    <td rowSpan={TEAM_MEMBERS_COUNT}>
+                                        {teamName}
+                                    </td>
+                                    <td>
+                                        {firstTeamMember.surnameAndName}
+                                    </td>
+                                    <td>
+                                        {firstTeamMember.personalTime}
+                                    </td>
+                                    <td rowSpan={TEAM_MEMBERS_COUNT}>
+                                        {totalTime}
+                                    </td>
+                                    <td rowSpan={TEAM_MEMBERS_COUNT}>
+                                        {place}
+                                    </td>
+                                </tr>
+                                {otherTeamMembers.map(({ surnameAndName, personalTime  }) => {
+                                    return (
+                                        <tr key={`${teamName}-${surnameAndName}`}>
+                                            <td>{surnameAndName}</td>
+                                            <td>{personalTime}</td>
+                                        </tr>
+                                    )
+                                })}
+                            </Fragment>
+
                         );
                     })}
-                </tr>
-            </thead>
-            <tbody>
-                {data.map(({ teamName, teamMembers, totalTime, place }) => {
-                    const [firstTeamMember, ...otherTeamMembers] = teamMembers;
-                    return (
-                        <Fragment key={`${teamName}-${place}`}>
-                            <tr>
-                                <td rowSpan={TEAM_MEMBERS_COUNT}>
-                                    {teamName}
-                                </td>
-                                <td>
-                                    {firstTeamMember.surnameAndName}
-                                </td>
-                                <td>
-                                    {firstTeamMember.personalTime}
-                                </td>
-                                <td rowSpan={TEAM_MEMBERS_COUNT}>
-                                    {totalTime}
-                                </td>
-                                <td rowSpan={TEAM_MEMBERS_COUNT}>
-                                    {place}
-                                </td>
-                            </tr>
-                            {otherTeamMembers.map(({ surnameAndName, personalTime  }) => {
-                                return (
-                                    <tr key={`${teamName}-${surnameAndName}`}>
-                                        <td>{surnameAndName}</td>
-                                        <td>{personalTime}</td>
-                                    </tr>
-                                )
-                            })}
-                        </Fragment>
-
-                    );
-                })}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     );
 };
 

@@ -2,7 +2,7 @@ import TeamCompetitionResultSection from './views/team-competition-result-sectio
 import { TeamCompetitionType } from '../../../domain/competition-type';
 import withTeamCompetitionResult from './with-team-competition-result';
 
-const title = "Группа  A (командный забег)";
+const title = "Группа A | Командный забег";
 
 // const data: TeamCompetitionResult = [
 //     {

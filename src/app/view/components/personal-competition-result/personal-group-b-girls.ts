@@ -2,7 +2,7 @@ import PersonalCompetitionResultSection from './views/personal-competition-resul
 import { PersonalCompetitionType } from '../../../domain/competition-type';
 import withPersonalCompetitionResult from './with-personal-competition-result';
 
-const title = "Группа B девочки (личный забег)";
+const title = "Группа B | Девушки | Личный забег";
 
 const PersonalGroupBGirls = withPersonalCompetitionResult(PersonalCompetitionResultSection, title, PersonalCompetitionType.GroupBGirls);
 

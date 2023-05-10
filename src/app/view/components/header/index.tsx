@@ -4,7 +4,7 @@ import Navigation from './navigation';
 
 const Header: FC = () => {
     return (
-        <header>
+        <header className="header content-wrapper">
             <Logo />
             <Navigation />
         </header>

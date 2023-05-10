@@ -7,18 +7,18 @@ interface Link {
 
 const links: Link[] = [
     {
-        caption: 'Группа  A',
+        caption: 'Группа A',
         url: '#group-a',
     },
     {
-        caption: 'Группа Б',
+        caption: 'Группа B',
         url: '#group-b',
     },
 ];
 
 const Navigation: FC = () => {
     return (
-        <nav>
+        <nav className="navigation">
             <ul>
                 {links.map(({ caption, url }) => {
                     return (

@@ -9,10 +9,12 @@ export interface PersonalCompetitionResultSectionProps {
 
 const PersonalCompetitionResultSection: FC<PersonalCompetitionResultSectionProps> = ({ title, data }) => {
     return (
-        <section>
-            <h3>
-                {title}
-            </h3>
+        <section className="mb-30">
+            <div className="content-wrapper mb-15">
+                <h3>
+                    {title}
+                </h3>
+            </div>
             <PersonalCompetitionResultTable data={data} />
         </section>
     );

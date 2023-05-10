@@ -10,9 +10,11 @@ export interface TeamCompetitionResultSectionProps {
 const TeamCompetitionResultSection: FC<TeamCompetitionResultSectionProps> = ({ title, data }) => {
     return (
         <section>
-            <h3>
-                {title}
-            </h3>
+            <div className="content-wrapper mb-15">
+                <h3>
+                    {title}
+                </h3>
+            </div>
             <TeamCompetitionResultTable data={data} />
         </section>
     );
