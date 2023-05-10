@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import reducer from './reducer';
 import { loadPersonalCompetitionResult } from './slices/personal-competition-result-slice';
 import { loadTeamCompetitionResult } from './slices/team-competition-result-slice';
@@ -9,7 +9,7 @@ import { TeamCompetitionResultLoaderFromGoogleSheets } from '../../infrastructur
 
 const store = configureStore({
     reducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 const personalCompetitions = [PersonalCompetitionType.GroupABoys, PersonalCompetitionType.GroupAGirls, PersonalCompetitionType.GroupBBoys, PersonalCompetitionType.GroupBGirls];
