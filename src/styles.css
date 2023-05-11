@@ -34,6 +34,10 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
+  background-image: url(assets/bg-top.svg);
+  background-repeat: no-repeat;
+  background-position: left top right;
+  background-size: contain;
   /* overflow-x: hidden; */
 }
 
@@ -66,7 +70,7 @@ main {
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .navigation ul, 
@@ -92,14 +96,15 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .into-section__title {
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .info-section__subtitle {
-  font-size: 16px;
+  font-size: 18px;
   /* color: var(--text-secondary); */
 }
 
@@ -165,6 +170,63 @@ main {
   color: #ffffff;
   font-size: 16px;
 }
+
+.footer {
+  background-image: url(assets/footer-bg-2.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  padding: 40px 15px;
+  min-height: 200px;
+}
+
+#group-a {
+  background-image: url(assets/group-a-bottom-bg.svg);
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  /* background-size: contain; */
+  background-size: 60%;
+  padding-bottom: 50px;
+  /* padding-bottom: 250px; */
+  /* padding: 40px 15px; */
+  /* min-height: 300px; */
+}
+
+#group-b {
+  background-image: url(assets/group-b-top-bg-3.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 60%;
+  padding-top: 50px;
+  /* padding-bottom: 250px; */
+  /* padding: 40px 15px; */
+  /* min-height: 300px; */
+}
+
+@media (max-width: 800px) {
+  #group-a {
+    background-size: 220%;
+  }
+
+  #group-b {
+    background-size: 180%;
+  }
+}
+
+.sections-separator {
+  /* background-image: url(assets/sections-separator-bg-2.svg);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  height: 100px; */
+
+  /* height: 160px;
+    background-image: url(assets/sections-separator-bg-3.svg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
 /* .table thead tr:first-child th:first-child, .table tbody tr td:first-child {
 	border-left: none;
 }
