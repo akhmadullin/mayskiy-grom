@@ -47,11 +47,26 @@ main {
   /* border: 1px solid red; */
 }
 
-
+/* .content-container {
+  max-width: 1024px;
+  margin: 0 auto;
+} */
 
 .content-wrapper {
-  padding: 0 15px;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
+
+@media (max-width: 800px) {
+  .content-wrapper {
+    padding: 0 15px;
+  }
+}
+
+/* .content-wrapper {
+  padding: 0 15px;
+} */
 
 .mb-15 {
   margin-bottom: 15px;
@@ -128,9 +143,17 @@ main {
 }
 
 .table-wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
   width: 100%;
   overflow-x: scroll;
-  padding: 0 15px;
+  padding: 0 20px;
+}
+
+@media (max-width: 800px) {
+  .table-wrapper {
+    padding: 0 15px;
+  }
 }
 
 .table {
