@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
 
+const logo = new URL('../../../../assets/mg-logo.svg', import.meta.url);
+
 const Logo: FC = () => {
     return (
-        <div>Майский гром</div>
+        <div className="header__logo__container">
+            <img src={logo} className="header__logo" alt="Майский гром" />
+        </div>
     );
 };
 
