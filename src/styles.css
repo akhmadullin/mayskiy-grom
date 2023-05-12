@@ -47,7 +47,7 @@ a:hover  {
 }
 
 a {
-  color: var(--link-color);
+  color: var(--link-color, hsl(209, 77%, 45%));
   transition: opacity 0.3s ease;
 }
 
@@ -61,8 +61,8 @@ a:hover {
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--bg-primary, hsl(0, 0%, 100%));
+  color: var(--text-primary, hsl(0, 0%, 0%));
   -webkit-text-size-adjust: none;
 }
 
@@ -135,7 +135,7 @@ main {
 .header__logo__container {
   padding: 5px;
   /* background: hsla(0, 0%, 100%, 0.4); */
-  background: var(--header-item-bg);
+  background: var(--header-item-bg, hsla(0, 0%, 100%, 0.4));
   border-radius: 6px;
 }
 
@@ -158,10 +158,10 @@ main {
 
 .navigation ul li a {
   font-size: 18px;
-  color: var(--text-primary);
+  color: var(--text-primary, hsl(0, 0%, 0%));
   padding: 5px;
   /* background: hsla(0, 0%, 100%, 0.4); */
-  background: var(--header-item-bg);
+  background: var(--header-item-bg, hsla(0, 0%, 100%, 0.4));
   border-radius: 6px;
   transition: opacity 0.3s ease;
 }
@@ -283,7 +283,7 @@ main {
 	border: none;
 	margin-bottom: 20px;
   border-collapse: collapse;
-  background: var(--bg-primary);
+  background: var(--bg-primary, hsl(0, 0%, 100%));
 
   /* border: 1px solid blue; */
   /* margin: 0 15px; */
@@ -294,17 +294,17 @@ main {
 	border: none;
 	padding: 10px 15px;
 	/* background: #d8d8d8; */
-	background: var(--table-th-bg);
+	background: var(--table-th-bg, hsl(0, 0%, 85%));
 	font-size: 14px;
-	border-left: 1px solid var(--table-border);
-	border-right: 1px solid var(--table-border);
+	border-left: 1px solid var(--table-border, hsl(0, 0%, 87%));
+	border-right: 1px solid var(--table-border, hsl(0, 0%, 87%));
 }
 .table tbody td {
 	text-align: left;
 	/* border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	border-bottom: 1px solid #ddd; */
-  border: 1px solid var(--table-border);
+  border: 1px solid var(--table-border, hsl(0, 0%, 87%));
 	padding: 10px 15px;
 	font-size: 14px;
 	vertical-align: middle;
@@ -314,7 +314,7 @@ main {
 .table-placeholder {
   height: 400px;
   border-radius: 12px;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-secondary, hsl(0, 0%, 96%));
   /* background: hsl(0, 0%, 96%);
   hsl(0, 0%, 10%) */
 	margin-bottom: 20px;
@@ -338,8 +338,8 @@ main {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid var(--text-primary);
-  border-color: var(--text-primary) transparent var(--text-primary) transparent;
+  border: 6px solid var(--text-primary, hsl(0, 0%, 0%));
+  border-color: var(--text-primary, hsl(0, 0%, 0%)) transparent var(--text-primary, hsl(0, 0%, 0%)) transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
@@ -356,7 +356,7 @@ main {
   padding: 12px 12px;
   border-radius: 6px;
   /* background: #70bf8a; */
-  background: var(--green-button-bg);
+  background: var(--green-button-bg, hsl(145,61%,35%));
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
@@ -373,7 +373,7 @@ main {
   padding: 12px;
   border-radius: 6px;
   /* background: #ddd; */
-  background: var(--table-border);
+  background: var(--table-border, hsl(0, 0%, 87%));
   cursor: pointer;
   transition: opacity 0.3s ease;
   line-height: 0;
