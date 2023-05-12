@@ -39,7 +39,7 @@ const teamCompetitionResultSlice = createSlice({
             state,
             action: PayloadAction<{
                 key: TeamCompetitionType;
-                data: TeamCompetitionResult;
+                data: TeamCompetitionResult | null;
             }>
         ) => {
             state[action.payload.key] = {
@@ -56,16 +56,22 @@ export default teamCompetitionResultSlice.reducer;
 
 export const loadTeamCompetitionResult = (competitionType: TeamCompetitionType): AppThunk => async (dispatch) => {
     dispatch(request(competitionType));
-    const teamCompetitionResultLoader = new TeamCompetitionResultLoaderFromGoogleSheets();
-    // const teamCompetitionResultLoader = new StubTeamCompetitionResultLoader();
-    const data = await teamCompetitionResultLoader.loadData(competitionType);
 
-    if (data === null) {
+    try {
+        const teamCompetitionResultLoader = new TeamCompetitionResultLoaderFromGoogleSheets();
+        // const teamCompetitionResultLoader = new StubTeamCompetitionResultLoader();
+        const data = await teamCompetitionResultLoader.loadData(competitionType);
+
+        if (data === null) {
+            dispatch(recieve({key: competitionType, data: null}));
+            return;
+        } 
+
+        const sorter = new TeamCompetitionResultSorter();
+
+        dispatch(recieve({ key: competitionType, data: sorter.sortAndDefinePlaces(data) }));
+    } catch (e) {
+        console.error('Error during loading team competition result', e);
         dispatch(recieve({key: competitionType, data: null}));
-        return;
-    } 
-
-    const sorter = new TeamCompetitionResultSorter();
-
-    dispatch(recieve({ key: competitionType, data: sorter.sortAndDefinePlaces(data) }));
+    }
 };

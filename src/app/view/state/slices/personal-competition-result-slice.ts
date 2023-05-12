@@ -42,7 +42,7 @@ const personalCompetitionResultSlice = createSlice({
             state,
             action: PayloadAction<{
                 key: PersonalCompetitionType;
-                data: PersonalCompetitionResult;
+                data: PersonalCompetitionResult | null;
             }>
         ) => {
             state[action.payload.key] = {
@@ -59,16 +59,22 @@ export default personalCompetitionResultSlice.reducer;
 
 export const loadPersonalCompetitionResult = (competitionType: PersonalCompetitionType): AppThunk => async (dispatch) => {
     dispatch(request(competitionType));
-    const personalCompetitionResultLoader = new PersonalCompetitionResultLoaderFromGoogleSheets();
-    // const personalCompetitionResultLoader = new StubRersonalCompetitionResultLoader();
-    const data = await personalCompetitionResultLoader.loadData(competitionType);
 
-    if (data === null) {
+    try {
+        const personalCompetitionResultLoader = new PersonalCompetitionResultLoaderFromGoogleSheets();
+        // const personalCompetitionResultLoader = new StubRersonalCompetitionResultLoader();
+        const data = await personalCompetitionResultLoader.loadData(competitionType);
+
+        if (data === null) {
+            dispatch(recieve({key: competitionType, data: null}));
+            return;
+        } 
+
+        const sorter = new PersonalCompetitionResultSorter();
+
+        dispatch(recieve({ key: competitionType, data: sorter.sortAndDefinePlaces(data) }));
+    } catch (e) {
+        console.error('Error during loading team competition result', e);
         dispatch(recieve({key: competitionType, data: null}));
-        return;
-    } 
-
-    const sorter = new PersonalCompetitionResultSorter();
-
-    dispatch(recieve({ key: competitionType, data: sorter.sortAndDefinePlaces(data) }));
+    }
 };
