@@ -32,7 +32,11 @@ const toNumber = (value: unknown): number => {
 };
 
 const toString = (value: unknown): string => {
-    return String(value).trim();
+    return value ? String(value).trim() : '';
+};
+
+const toValueOrNull = <V>(value: V): V | null => {
+    return Boolean(value) === true ? value : null;
 };
 
 export class TeamCompetitionResultLoaderFromGoogleSheets implements TeamCompetitionResultLoaderInterface {
@@ -49,7 +53,11 @@ export class TeamCompetitionResultLoaderFromGoogleSheets implements TeamCompetit
                 values: RawTeamCompetitionResult
             } = await response.json();
 
-            return this.prepareRawData(data.values.slice(2));
+            if (data.values[0][1] === 'нет') {
+                return null;
+            }
+    
+            return this.prepareRawData(data.values.slice(5));
         }
         catch (e) {
             console.error(e);
@@ -86,8 +94,8 @@ export class TeamCompetitionResultLoaderFromGoogleSheets implements TeamCompetit
             const resultItem: TeamCompetitionResultItem = {
                 teamName: toString(teamName),
                 teamMembers,
-                totalTime: toString(teamTime),
-                place: toNumber(place),
+                totalTime: toValueOrNull(toString(teamTime)),
+                place: toValueOrNull(toNumber(place)),
             };
 
             result.push(resultItem);

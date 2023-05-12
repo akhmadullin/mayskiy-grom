@@ -59,9 +59,14 @@ export default personalCompetitionResultSlice.reducer;
 
 export const loadPersonalCompetitionResult = (competitionType: PersonalCompetitionType): AppThunk => async (dispatch) => {
     dispatch(request(competitionType));
-    // const personalCompetitionResultLoader = new RersonalCompetitionResultLoaderFromGoogleSheets();
-    const personalCompetitionResultLoader = new StubRersonalCompetitionResultLoader();
+    const personalCompetitionResultLoader = new PersonalCompetitionResultLoaderFromGoogleSheets();
+    // const personalCompetitionResultLoader = new StubRersonalCompetitionResultLoader();
     const data = await personalCompetitionResultLoader.loadData(competitionType);
+
+    if (data === null) {
+        dispatch(recieve({key: competitionType, data: null}));
+        return;
+    } 
 
     const sorter = new PersonalCompetitionResultSorter();
 

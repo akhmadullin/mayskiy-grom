@@ -30,7 +30,7 @@ const toNumber = (value: unknown): number => {
 };
 
 const toString = (value: unknown): string => {
-    return String(value).trim();
+    return value ? String(value).trim() : '';
 };
 
 const toValueOrNull = <V>(value: V): V | null => {
@@ -50,8 +50,12 @@ export class PersonalCompetitionResultLoaderFromGoogleSheets implements Personal
             const data: {
                 values: RawPersonalCompetitionResult
             } = await response.json();
+
+            if (data.values[0][1] === 'нет') {
+                return null;
+            }
     
-            return this.prepareRawData(data.values.slice(2));
+            return this.prepareRawData(data.values.slice(5));
         }
         catch (e) {
             console.error(e);

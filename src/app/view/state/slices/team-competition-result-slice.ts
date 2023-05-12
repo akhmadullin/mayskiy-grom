@@ -56,9 +56,14 @@ export default teamCompetitionResultSlice.reducer;
 
 export const loadTeamCompetitionResult = (competitionType: TeamCompetitionType): AppThunk => async (dispatch) => {
     dispatch(request(competitionType));
-    // const teamCompetitionResultLoader = new TeamCompetitionResultLoaderFromGoogleSheets();
-    const teamCompetitionResultLoader = new StubTeamCompetitionResultLoader();
+    const teamCompetitionResultLoader = new TeamCompetitionResultLoaderFromGoogleSheets();
+    // const teamCompetitionResultLoader = new StubTeamCompetitionResultLoader();
     const data = await teamCompetitionResultLoader.loadData(competitionType);
+
+    if (data === null) {
+        dispatch(recieve({key: competitionType, data: null}));
+        return;
+    } 
 
     const sorter = new TeamCompetitionResultSorter();
 
