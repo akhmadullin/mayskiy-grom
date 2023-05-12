@@ -125,6 +125,7 @@ main {
   padding: 5px;
   background: hsla(0, 0%, 100%, 0.4);
   border-radius: 6px;
+  transition: opacity 0.3s ease;
 }
 
 .navigation ul li a:hover {
@@ -179,7 +180,7 @@ main {
 }
 
 .group-section__description {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 16px;
 }
 
@@ -189,6 +190,13 @@ main {
 
 .group-section__content > *:last-child {
   margin-bottom: 0;
+}
+
+.section-title-button-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .table-wrapper {
@@ -210,6 +218,8 @@ main {
 	border: none;
 	margin-bottom: 20px;
   border-collapse: collapse;
+  background: var(--bg-primary);
+
   /* border: 1px solid blue; */
   /* margin: 0 15px; */
 }
@@ -242,39 +252,37 @@ main {
 	margin-bottom: 20px;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 16px;
 }
 
-@keyframes tableplaceholderanimation {
-  100% {
-    background-position: 0%;
-  }
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid var(--text-primary);
+  border-color: var(--text-primary) transparent var(--text-primary) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
   0% {
-      background-position: 100%;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-.table-placeholder_animated::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(
-      140deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0) 30%,
-      rgba(255, 255, 255, 0.6) 42%,
-      rgba(255, 255, 255, 0.9) 50%,
-      rgba(255, 255, 255, 0.6) 58%,
-      rgba(255, 255, 255, 0) 75%,
-      rgba(255, 255, 255, 0) 100%
-  );
-  background-size: 600% 200%;
-  animation: tableplaceholderanimation 1.3s ease-in infinite;
-}
 
 .green-button {
   padding: 12px 12px;
@@ -282,6 +290,31 @@ main {
   background: #70bf8a;
   color: #ffffff;
   font-size: 16px;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.green-button:hover {
+  opacity: 0.8;
+}
+
+.gray-button {
+  font-size: 16px;
+  /* margin: 0; */
+  padding: 12px;
+  border-radius: 6px;
+  background: #ddd;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  line-height: 0;
+}
+
+.gray-button:hover {
+  opacity: 0.8;
+}
+
+.gray-button:disabled {
+  opacity: 0.7;
 }
 
 .footer {
