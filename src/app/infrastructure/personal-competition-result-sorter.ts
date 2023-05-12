@@ -7,7 +7,7 @@ import timestringToSecondNumber from './time-string-to-second-number';
 // };
 
 export class PersonalCompetitionResultSorter implements PersonalCompetitionResultSorterInterface {
-    public definePlacesAndSort(data: PersonalCompetitionResult): PersonalCompetitionResult {
+    public sortAndDefinePlaces(data: PersonalCompetitionResult): PersonalCompetitionResult {
         const withTimeAndWithoutFail = data.filter((item) => item.time !== null && item.fail === null);
         const withTimeAndWithFail = data.filter((item) => item.time !== null && item.fail !== null);
         const withoutTime = data.filter((item) => item.time === null );

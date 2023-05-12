@@ -16,7 +16,7 @@ describe('PersonalCompetitionResultSorter - class, that defines places and sort 
             { startNumber: 4, person: 'person-4', team: 'team-2', time: null, fail: null, place: null },
         ];
         const sorter = new PersonalCompetitionResultSorter();
-        expect(sorter.definePlacesAndSort(input)).toEqual(output);
+        expect(sorter.sortAndDefinePlaces(input)).toEqual(output);
     });
 
     test('some people have time, others not, no fails', () => {
@@ -35,7 +35,7 @@ describe('PersonalCompetitionResultSorter - class, that defines places and sort 
             { startNumber: 4, person: 'person-4', team: 'team-2', time: null, fail: null, place: null },
         ];
         const sorter = new PersonalCompetitionResultSorter();
-        expect(sorter.definePlacesAndSort(input)).toEqual(output);
+        expect(sorter.sortAndDefinePlaces(input)).toEqual(output);
     });
 
     test('some people have time, others not, with fails', () => {
@@ -58,7 +58,7 @@ describe('PersonalCompetitionResultSorter - class, that defines places and sort 
             { startNumber: 4, person: 'person-4', team: 'team-2', time: null, fail: null, place: null },
         ];
         const sorter = new PersonalCompetitionResultSorter();
-        expect(sorter.definePlacesAndSort(input)).toEqual(output);
+        expect(sorter.sortAndDefinePlaces(input)).toEqual(output);
     });
 
     test('some people have time, others not, with fails, some people have equal time', () => {
@@ -87,7 +87,7 @@ describe('PersonalCompetitionResultSorter - class, that defines places and sort 
             { startNumber: 7, person: 'person-7', team: 'team-3', time: null, fail: null, place: null },
         ];
         const sorter = new PersonalCompetitionResultSorter();
-        expect(sorter.definePlacesAndSort(input)).toEqual(output);
+        expect(sorter.sortAndDefinePlaces(input)).toEqual(output);
     });
 
     test('all people have time, some with fails, some people have equal time', () => {
@@ -116,6 +116,6 @@ describe('PersonalCompetitionResultSorter - class, that defines places and sort 
             { startNumber: 8, person: 'person-8', team: 'team-3', time: '6:06', fail: 'снятие', place: 10 },
         ];
         const sorter = new PersonalCompetitionResultSorter();
-        expect(sorter.definePlacesAndSort(input)).toEqual(output);
+        expect(sorter.sortAndDefinePlaces(input)).toEqual(output);
     });
 });

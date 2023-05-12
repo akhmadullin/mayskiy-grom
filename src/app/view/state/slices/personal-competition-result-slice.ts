@@ -65,5 +65,5 @@ export const loadPersonalCompetitionResult = (competitionType: PersonalCompetiti
 
     const sorter = new PersonalCompetitionResultSorter();
 
-    dispatch(recieve({ key: competitionType, data: sorter.definePlacesAndSort(data) }));
+    dispatch(recieve({ key: competitionType, data: sorter.sortAndDefinePlaces(data) }));
 };
