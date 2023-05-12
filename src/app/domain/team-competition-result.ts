@@ -2,14 +2,14 @@
 
 interface TeamMember {
     surnameAndName: string;
-    personalTime: string;
+    personalTime: string | null;
 }
 
 export interface TeamCompetitionResultItem {
     teamName: string;
     teamMembers: TeamMember[];
-    totalTime: string;
-    place: number;
+    totalTime: string | null;
+    place: number | null;
 }
 
 export type TeamCompetitionResult = TeamCompetitionResultItem[];

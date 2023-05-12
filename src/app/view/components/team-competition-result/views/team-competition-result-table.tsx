@@ -9,11 +9,11 @@ interface TeamCompetitionResultTableProps {
 
 
 const tableHeadeings = {
+    place: 'Место',
     teamName: 'Команда',
+    totalTime: 'Общее время',
     teamMembers: 'Участники',
     teamMemebrsPersonalTime: 'Беговое время (личка)',
-    totalTime: 'Общее время',
-    place: 'Место',
 };
 const tableHeadeingsList = Object.values(tableHeadeings);
 
@@ -39,19 +39,19 @@ const TeamCompetitionResultTable: FC<TeamCompetitionResultTableProps> = ({ data 
                             <Fragment key={`${teamName}-${place}`}>
                                 <tr>
                                     <td rowSpan={TEAM_MEMBERS_COUNT}>
+                                        {place}
+                                    </td>
+                                    <td rowSpan={TEAM_MEMBERS_COUNT}>
                                         {teamName}
+                                    </td>
+                                    <td rowSpan={TEAM_MEMBERS_COUNT}>
+                                        {totalTime}
                                     </td>
                                     <td>
                                         {firstTeamMember.surnameAndName}
                                     </td>
                                     <td>
                                         {firstTeamMember.personalTime}
-                                    </td>
-                                    <td rowSpan={TEAM_MEMBERS_COUNT}>
-                                        {totalTime}
-                                    </td>
-                                    <td rowSpan={TEAM_MEMBERS_COUNT}>
-                                        {place}
                                     </td>
                                 </tr>
                                 {otherTeamMembers.map(({ surnameAndName, personalTime  }) => {
