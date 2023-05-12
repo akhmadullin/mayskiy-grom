@@ -9,7 +9,7 @@ export interface PersonalCompetitionResultSectionProps {
 
 const PersonalCompetitionResultSection: FC<PersonalCompetitionResultSectionProps> = ({ title, data }) => {
     return (
-        <section className="mb-30">
+        <section>
             <div className="content-wrapper mb-15">
                 <h3>
                     {title}

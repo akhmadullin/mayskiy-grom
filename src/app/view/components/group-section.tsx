@@ -13,7 +13,9 @@ const GroupSection: FC<GroupSectionProps> = ({ title, description, id, children 
                 <h2 className="group-section__title">{title}</h2>
                 <p className="group-section__description">{description}</p>
             </div>
-            {children}
+            <div className="group-section__content">
+                {children}
+            </div>
         </section>
     );
 };
