@@ -21,6 +21,7 @@ const tableHeadeingsList = Object.values(tableHeadeings);
 const PersonalCompetitionResultTable: FC<PersonalCompetitionResultTableProps> = ({ data }) => {
     return (
         <div className="table-wrapper">
+            <div className="table-wrapper__scroll-padding_left" />
             <table className="table">
                 <thead>
                     <tr>
@@ -48,6 +49,7 @@ const PersonalCompetitionResultTable: FC<PersonalCompetitionResultTableProps> = 
                     })}
                 </tbody>
             </table>
+            <div className="table-wrapper__scroll-padding_right" />
         </div>
     );
 };
