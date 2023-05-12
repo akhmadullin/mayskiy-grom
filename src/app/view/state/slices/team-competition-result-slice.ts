@@ -4,7 +4,7 @@ import { TeamCompetitionResult } from '../../../domain/team-competition-result';
 import { AppThunk } from '../types';
 import { TeamCompetitionResultLoaderFromGoogleSheets } from '../../../infrastructure/team-competition-result-loader-from-google-sheets';
 import { TeamCompetitionResultSorter } from '../../../infrastructure/team-competition-result-sorter';
-import { StubTeamCompetitionResultLoader } from '../../../infrastructure/stub-team-competition-result-loader';
+// import { StubTeamCompetitionResultLoader } from '../../../infrastructure/stub-team-competition-result-loader';
 
 interface DataByType {
     isFetching: boolean;

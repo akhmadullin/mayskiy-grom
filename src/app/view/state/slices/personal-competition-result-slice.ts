@@ -4,7 +4,7 @@ import { PersonalCompetitionResult } from '../../../domain/personal-competition-
 import { AppThunk } from '../types';
 import { PersonalCompetitionResultLoaderFromGoogleSheets } from '../../../infrastructure/personal-competition-result-loader-from-google-sheets';
 import { PersonalCompetitionResultSorter } from '../../../infrastructure/personal-competition-result-sorter';
-import { StubRersonalCompetitionResultLoader } from '../../../infrastructure/stub-personal-competition-result-loader';
+// import { StubRersonalCompetitionResultLoader } from '../../../infrastructure/stub-personal-competition-result-loader';
 
 
 interface DataByType {
