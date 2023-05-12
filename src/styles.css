@@ -27,7 +27,8 @@ a:hover  {
   --table-th-bg: hsl(0, 0%, 85%);
   --table-border: 	hsl(0, 0%, 87%);
   --link-color: hsl(209, 77%, 45%);
-  --green-button-bg:	hsl(140, 38%, 59%);
+  /* --green-button-bg:	hsl(140, 38%, 59%); */
+  --green-button-bg: hsl(145,61%,35%);
 }
 
 @media (prefers-color-scheme: dark) {
