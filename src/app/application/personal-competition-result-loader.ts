@@ -1,6 +1,6 @@
 import { PersonalCompetitionType }  from '../domain/competition-type';
 import { PersonalCompetitionResult } from '../domain/personal-competition-result';
 
-export interface RersonalCompetitionResultLoaderInterface {
+export interface PersonalCompetitionResultLoaderInterface {
     loadData(competitionType: PersonalCompetitionType): Promise<PersonalCompetitionResult | null>;
 }

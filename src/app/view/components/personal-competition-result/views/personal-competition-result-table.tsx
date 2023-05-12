@@ -9,12 +9,12 @@ interface PersonalCompetitionResultTableProps {
 
 
 const tableHeadeings: Record<keyof PersonalCompetitionResultItem, string> = {
-    startNumber: 'Порядок старта',
+    place: 'Место',
     person: 'Фамилия Имя',
     team: 'Команда',
     time: 'Беговое время',
+    startNumber: 'Порядок старта',
     fail: 'Снятие',
-    place: 'Место',
 };
 const tableHeadeingsList = Object.values(tableHeadeings);
 
@@ -37,12 +37,12 @@ const PersonalCompetitionResultTable: FC<PersonalCompetitionResultTableProps> = 
                     {data.map(({ startNumber, person, team, time, fail, place }) => {
                         return (
                             <tr key={startNumber}>
-                                <td>{startNumber}</td>
+                                <td>{place}</td>
                                 <td>{person}</td>
                                 <td>{team}</td>
                                 <td>{time}</td>
+                                <td>{startNumber}</td>
                                 <td>{fail}</td>
-                                <td>{place}</td>
                             </tr>
                         );
                     })}

@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PersonalCompetitionType } from '../../../domain/competition-type';
 import { PersonalCompetitionResult } from '../../../domain/personal-competition-result';
 import { AppThunk } from '../types';
-import { RersonalCompetitionResultLoaderFromGoogleSheets } from '../../../infrastructure/personal-competition-result-loader-from-google-sheets';
+import { PersonalCompetitionResultLoaderFromGoogleSheets } from '../../../infrastructure/personal-competition-result-loader-from-google-sheets';
+import { PersonalCompetitionResultSorter } from '../../../infrastructure/personal-competition-result-sorter';
 import { StubRersonalCompetitionResultLoader } from '../../../infrastructure/stub-personal-competition-result-loader';
 
 
@@ -61,5 +62,8 @@ export const loadPersonalCompetitionResult = (competitionType: PersonalCompetiti
     // const personalCompetitionResultLoader = new RersonalCompetitionResultLoaderFromGoogleSheets();
     const personalCompetitionResultLoader = new StubRersonalCompetitionResultLoader();
     const data = await personalCompetitionResultLoader.loadData(competitionType);
-    dispatch(recieve({ key: competitionType, data }));
+
+    const sorter = new PersonalCompetitionResultSorter();
+
+    dispatch(recieve({ key: competitionType, data: sorter.definePlacesAndSort(data) }));
 };

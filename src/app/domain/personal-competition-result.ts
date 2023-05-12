@@ -14,9 +14,9 @@ export interface PersonalCompetitionResultItem {
     startNumber: number;
     person: string;
     team: string;
-    time: string;
-    fail?: string;
-    place: number;
+    time: string | null;
+    fail: string | null;
+    place: number | null;
 }
 
 export type PersonalCompetitionResult = PersonalCompetitionResultItem[];

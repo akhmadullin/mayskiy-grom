@@ -16,12 +16,12 @@ const App: FC = () => {
             <Header />
             <main>
                 <IntroSection />
-                <GroupSection id="group-a" title="Группа A" description="Возраст участников 15-16 лет">
+                <GroupSection id="group-a" title="Группа A" description="Возраст участников 16-18 лет">
                     <PersonalGroupABoys />
                     <PersonalGroupAGirls />
                     <TeamGroupA />
                 </GroupSection>
-                <GroupSection id="group-b" title="Группа B" description="Возраст участников 13-14 лет">
+                <GroupSection id="group-b" title="Группа B" description="Возраст участников 14-16 лет">
                     <PersonalGroupBBoys />
                     <PersonalGroupBGirls />
                     <TeamGroupB />

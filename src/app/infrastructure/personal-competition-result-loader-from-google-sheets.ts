@@ -1,4 +1,4 @@
-import { RersonalCompetitionResultLoaderInterface } from '../application/personal-competition-result-loader';
+import { PersonalCompetitionResultLoaderInterface } from '../application/personal-competition-result-loader';
 import { PersonalCompetitionResult, PersonalCompetitionResultItem } from '../domain/personal-competition-result';
 import { PersonalCompetitionType } from '../domain/competition-type';
 
@@ -7,10 +7,11 @@ type Person = string;
 type Team = string;
 type Time = string;
 type Fail = string;
-type Place = string;
+// type Place = string;
 
 
-type RawPersonalCompetitionResultItem = [StartNumber, Person, Team, Time, Fail, Place];
+// type RawPersonalCompetitionResultItem = [StartNumber, Person, Team, Time, Fail, Place];
+type RawPersonalCompetitionResultItem = [StartNumber, Person, Team, Time, Fail];
 
 type RawPersonalCompetitionResult = RawPersonalCompetitionResultItem[];
 
@@ -32,7 +33,11 @@ const toString = (value: unknown): string => {
     return String(value).trim();
 };
 
-export class RersonalCompetitionResultLoaderFromGoogleSheets implements RersonalCompetitionResultLoaderInterface {
+const toValueOrNull = <V>(value: V): V | null => {
+    return Boolean(value) === true ? value : null;
+};
+
+export class PersonalCompetitionResultLoaderFromGoogleSheets implements PersonalCompetitionResultLoaderInterface {
     public async loadData(competitionType: PersonalCompetitionType): Promise<PersonalCompetitionResult | null> {
         try {
             const apiUrl = this.getApiUrl(competitionType);
@@ -60,14 +65,16 @@ export class RersonalCompetitionResultLoaderFromGoogleSheets implements Rersonal
     }
 
     private prepareRawData(rawData: RawPersonalCompetitionResult): PersonalCompetitionResult {
-        return rawData.map(([startNumber, person, team, time, fail, place]) => {
+        // return rawData.map(([startNumber, person, team, time, fail, place]) => {
+        return rawData.map(([startNumber, person, team, time, fail]) => {
             return {
                 startNumber: toNumber(startNumber),
                 person: toString(person),
                 team: toString(team),
-                time: toString(time),
-                fail: toString(fail),
-                place: toNumber(place),
+                time: toValueOrNull(toString(time)),
+                fail: toValueOrNull(toString(fail)),
+                // place: toNumber(place),
+                place: null,
             };
         });
     };
