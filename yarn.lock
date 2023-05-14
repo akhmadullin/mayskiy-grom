@@ -3926,6 +3926,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "mayskiy-grom@workspace:."
   dependencies:
+    "@parcel/core": 2.8.3
     "@reduxjs/toolkit": 1.9.5
     "@types/jest": 29.5.1
     "@types/react": 18.2.6
