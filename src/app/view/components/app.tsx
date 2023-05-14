@@ -10,6 +10,7 @@ import PersonalGroupBBoys from './personal-competition-result/personal-group-b-b
 import PersonalGroupBGirls from './personal-competition-result/personal-group-b-girls';
 import TeamGroupB from './team-competition-result/team-group-b';
 import PhotoGallerySection from './photo-gallery';
+import HashScroller from './hash-scroller';
 
 const App: FC = () => {
     return (
@@ -28,6 +29,7 @@ const App: FC = () => {
                     <TeamGroupB />
                 </GroupSection>
                 <PhotoGallerySection id="photo-gallery" />
+                <HashScroller />
             </main>
             <Footer />
         </>

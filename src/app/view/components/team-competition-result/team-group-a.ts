@@ -40,6 +40,6 @@ const title = "Группа A | Командный забег";
 //     },
 // ];
 
-const TeamGroupA = withTeamCompetitionResult(TeamCompetitionResultSection, title, TeamCompetitionType.GroupA);
+const TeamGroupA = withTeamCompetitionResult(TeamCompetitionResultSection, title, TeamCompetitionType.GroupA, '333px');
 
 export default TeamGroupA;

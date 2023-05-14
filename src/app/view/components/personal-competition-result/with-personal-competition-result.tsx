@@ -10,7 +10,8 @@ import UpdateButton from '../update-button';
 const withPersonalCompetitionResult = (
     Component: FC<PersonalCompetitionResultSectionProps>,
     title: string,
-    competitionType: PersonalCompetitionType
+    competitionType: PersonalCompetitionType,
+    placeholderHeight?: string,
 ): FC => {
     return () => {
         const { isFetching, data } = usePersonalCompetitionResult(competitionType);
@@ -23,11 +24,11 @@ const withPersonalCompetitionResult = (
         const updateDataButton = <UpdateButton isFetching={isFetching} updateData={updateData} />;
 
         if (isFetching) {
-            return <TableSectionPlaceholder title={title} isAnimated updateButton={updateDataButton}  />;
+            return <TableSectionPlaceholder title={title} isAnimated updateButton={updateDataButton} placeholderHeight={placeholderHeight}  />;
         }
 
         if (data === null) {
-            return <TableSectionPlaceholder title={title} placeholderText="Результаты будут доступны позже" updateButton={updateDataButton} />;
+            return <TableSectionPlaceholder title={title} placeholderText="Результаты будут доступны позже" updateButton={updateDataButton} placeholderHeight={placeholderHeight} />;
         }
 
         return <Component title={title} updateButton={updateDataButton} data={data} />;

@@ -4,6 +4,6 @@ import withPersonalCompetitionResult from './with-personal-competition-result';
 
 const title = "Группа B | Юноши | Личный забег";
 
-const PersonalGroupBBoys = withPersonalCompetitionResult(PersonalCompetitionResultSection, title, PersonalCompetitionType.GroupBBoys);
+const PersonalGroupBBoys = withPersonalCompetitionResult(PersonalCompetitionResultSection, title, PersonalCompetitionType.GroupBBoys, '575px');
 
 export default PersonalGroupBBoys;

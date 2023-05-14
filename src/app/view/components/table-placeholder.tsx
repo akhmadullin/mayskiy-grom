@@ -3,11 +3,12 @@ import React, { FC, ReactElement } from 'react';
 interface TablePlaceholderProps {
     placeholderText: string;
     isAnimated: boolean; 
+    placeholderHeight?: string;
 }
 
-const TablePlaceholder: FC<TablePlaceholderProps> = ({ isAnimated, placeholderText }) => {
+const TablePlaceholder: FC<TablePlaceholderProps> = ({ isAnimated, placeholderText, placeholderHeight }) => {
     return (
-        <div className="table-placeholder">
+        <div style={placeholderHeight ? { height: placeholderHeight } : undefined} className="table-placeholder">
             {placeholderText && (
                 <p>
                     {placeholderText}
