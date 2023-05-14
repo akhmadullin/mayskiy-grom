@@ -6,10 +6,9 @@ export interface TableSectionPlaceholderProps {
     placeholderText?: string;
     isAnimated?: boolean;
     updateButton: ReactElement;
-    placeholderHeight?: string;
 };
 
-const TableSectionPlaceholder: FC<TableSectionPlaceholderProps> = ({ title, placeholderText = '', isAnimated = false, updateButton, placeholderHeight  }) => {
+const TableSectionPlaceholder: FC<TableSectionPlaceholderProps> = ({ title, placeholderText = '', isAnimated = false, updateButton  }) => {
     return (
         <section>
             <div className="content-wrapper mb-15">
@@ -21,7 +20,7 @@ const TableSectionPlaceholder: FC<TableSectionPlaceholderProps> = ({ title, plac
                 </div>
             </div>
             <div className="content-wrapper">
-                <TablePlaceholder isAnimated={isAnimated} placeholderText={placeholderText} placeholderHeight={placeholderHeight} />
+                <TablePlaceholder isAnimated={isAnimated} placeholderText={placeholderText} />
             </div>
         </section>
     );
