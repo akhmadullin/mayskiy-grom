@@ -566,9 +566,8 @@ main {
 }
 
 .gallery__thumbnail {
-  /* background: pink; */
-  /* position: relative; */
   transition: opacity 0.3s ease;
+  background-color: var(--bg-secondary, hsl(0, 0%, 96%));
 }
 
 /* .gallery__thumbnail::after {
