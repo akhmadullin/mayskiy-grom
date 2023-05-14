@@ -7,12 +7,12 @@ const PhotoGallery: FC = () => {
     return (
         <div className="gallery">
             <Gallery>
-                {photos.map(({ original, thumbnail, thumbnail2x, width, height, alt }) => {
+                {photos.map(({ original, thumbnail, thumbnail2x, photoswipeThumbnail, width, height, alt }) => {
                     return (
                         <Item
                             key={original}
                             original={original}
-                            thumbnail={thumbnail}
+                            thumbnail={photoswipeThumbnail}
                             width={width}
                             height={height}
                         >
