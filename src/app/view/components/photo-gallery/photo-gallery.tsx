@@ -7,7 +7,7 @@ const PhotoGallery: FC = () => {
     return (
         <div className="gallery">
             <Gallery>
-                {photos.map(({ original, thumbnail, thumbnail2x, width, height }) => {
+                {photos.map(({ original, thumbnail, thumbnail2x, width, height, alt }) => {
                     return (
                         <Item
                             key={original}
@@ -17,10 +17,18 @@ const PhotoGallery: FC = () => {
                             height={height}
                         >
                             {({ ref, open }) => (
-                                <div className="gallery__thumbnail">
-                                    <img ref={ref as MutableRefObject<HTMLImageElement>} onClick={open} src={thumbnail} srcSet={`${thumbnail} 1x, ${thumbnail2x} 2x`} loading="lazy" className="gallery__thumbnail__img"  />
-                                </div>
-
+                                <a 
+                                    href={original}
+                                    target="_blank"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        open(e);
+                                    }}
+                                    aria-label={`Фотография "${alt}"`}
+                                    className="gallery__thumbnail"
+                                >
+                                    <img ref={ref as MutableRefObject<HTMLImageElement>} src={thumbnail} srcSet={`${thumbnail} 1x, ${thumbnail2x} 2x`} alt={alt} loading="lazy" className="gallery__thumbnail__img"  />
+                                </a>
                             )}
                         </Item>
                     );

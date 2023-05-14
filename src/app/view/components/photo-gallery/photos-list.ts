@@ -133,6 +133,7 @@ interface Photo {
     thumbnail2x: string;
     width: number;
     height: number;
+    alt: string;
 };
 
 
@@ -143,6 +144,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x1,
         width: 1280,
         height: 853,
+        alt: 'Открытие соревнований',
     },
     {
         original: o2,
@@ -150,6 +152,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x2,
         width: 853,
         height: 1280,
+        alt: 'Поднятие флага',
     },
     {
         original: o3,
@@ -157,6 +160,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x3,
         width: 853,
         height: 1280,
+        alt: 'Игнатов Илья бежит дистанцию',
     },
     {
         original: o4,
@@ -164,6 +168,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x4,
         width: 853,
         height: 1280,
+        alt: 'Игнатов Илья бежит дистанцию',
     },
     {
         original: o5,
@@ -171,6 +176,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x5,
         width: 1280,
         height: 853,
+        alt: 'Шелегеда Артур бежит дистанцию',
     },
     {
         original: o6,
@@ -178,6 +184,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x6,
         width: 853,
         height: 1280,
+        alt: 'Татаренко Ярослав готовится к старту',
     },
     {
         original: o7,
@@ -185,6 +192,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x7,
         width: 1280,
         height: 853,
+        alt: 'Степанов Роман готовится к старту',
     },
     {
         original: o8,
@@ -192,6 +200,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x8,
         width: 853,
         height: 1280,
+        alt: 'Участница команды Вертикаль',
     },
     {
         original: o9,
@@ -199,6 +208,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x9,
         width: 853,
         height: 1280,
+        alt: 'Степанов Роман - этап Маятник',
     },
     {
         original: o10,
@@ -206,6 +216,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x10,
         width: 853,
         height: 1280,
+        alt: 'Степанов Роман бежит дистанцию',
     },
     {
         original: o11,
@@ -213,6 +224,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x11,
         width: 853,
         height: 1280,
+        alt: 'Степанов Роман бежит дистанцию',
     },
     {
         original: o12,
@@ -220,6 +232,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x12,
         width: 853,
         height: 1280,
+        alt: 'Участник сореврований готовится к старту',
     },
     {
         original: o13,
@@ -227,6 +240,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x13,
         width: 853,
         height: 1280,
+        alt: 'Участник сореврований готовится к старту',
     },
     {
         original: o14,
@@ -234,6 +248,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x14,
         width: 853,
         height: 1280,
+        alt: 'Участник сореврований стартовал',
     },
     {
         original: o15,
@@ -241,6 +256,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x15,
         width: 853,
         height: 1280,
+        alt: 'Участник сореврований бежит дистанцию',
     },
     {
         original: o16,
@@ -248,6 +264,8 @@ const photos: Photo[] = [
         thumbnail2x: t2x16,
         width: 853,
         height: 1280,
+        alt: 'Участница соревнований готовится к старту',
+
     },
     {
         original: o17,
@@ -255,6 +273,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x17,
         width: 853,
         height: 1280,
+        alt: 'Участница соревнований бежит дистанцию',
     },
     {
         original: o18,
@@ -262,6 +281,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x18,
         width: 853,
         height: 1280,
+        alt: 'Участница соревнований бежит дистанцию',
     },
     {
         original: o19,
@@ -269,6 +289,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x19,
         width: 853,
         height: 1280,
+        alt: 'Участница соревнований бежит дистанцию',
     },
     {
         original: o20,
@@ -276,6 +297,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x20,
         width: 767,
         height: 1280,
+        alt: 'Участница соревнований улыбается',
     },
     {
         original: o21,
@@ -283,6 +305,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x21,
         width: 853,
         height: 1280,
+        alt: 'Судья соревнований Захар Захаров',
     },
     {
         original: o22,
@@ -290,6 +313,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x22,
         width: 853,
         height: 1280,
+        alt: 'Артур Вегер на этапе Маятник',
     },
     {
         original: o23,
@@ -297,6 +321,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x23,
         width: 853,
         height: 1280,
+        alt: 'Артур Вегер бежит дистанцию',
     },
     {
         original: o24,
@@ -304,6 +329,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x24,
         width: 853,
         height: 1280,
+        alt: 'Захар Захаров бежит дистанцию',
     },
     {
         original: o25,
@@ -311,6 +337,8 @@ const photos: Photo[] = [
         thumbnail2x: t2x25,
         width: 853,
         height: 1280,
+        alt: 'Захар Захаров бежит дистанцию',
+
     },
     {
         original: o26,
@@ -318,6 +346,8 @@ const photos: Photo[] = [
         thumbnail2x: t2x26,
         width: 853,
         height: 1280,
+        alt: 'Захар Захаров бежит дистанцию',
+
     },
     {
         original: o27,
@@ -325,6 +355,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x27,
         width: 853,
         height: 1280,
+        alt: 'Захар Захаров после прохождения дистанции',
     },
     {
         original: o28,
@@ -332,6 +363,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x28,
         width: 853,
         height: 1280,
+        alt: 'Фатыхова Мария готовится к старту',
     },
     {
         original: o29,
@@ -339,6 +371,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x29,
         width: 853,
         height: 1280,
+        alt: 'Шкурбалова Екатерина бежит дистанцию',
     },
     {
         original: o30,
@@ -346,6 +379,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x30,
         width: 1280,
         height: 853,
+        alt: 'Шкурбалова Екатерина бежит дистанцию',
     },
     {
         original: o31,
@@ -353,6 +387,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x31,
         width: 853,
         height: 1280,
+        alt: 'Участник соревнований бежит дистанцию',
     },
     {
         original: o32,
@@ -360,6 +395,7 @@ const photos: Photo[] = [
         thumbnail2x: t2x32,
         width: 853,
         height: 1280,
+        alt: 'Участник соревнований бежит дистанцию',
     },
 ];
 
