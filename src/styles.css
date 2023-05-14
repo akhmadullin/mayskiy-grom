@@ -21,6 +21,7 @@ a:hover  {
 
 :root {
   --text-primary: hsl(0, 0%, 0%);
+  --text-primary-inverted: hsl(0, 0%, 100%);
   --bg-primary: hsl(0, 0%, 100%);
   --bg-secondary: hsl(0, 0%, 96%);
   --header-item-bg: hsla(0, 0%, 100%, 0.4);
@@ -29,11 +30,14 @@ a:hover  {
   --link-color: hsl(209, 77%, 45%);
   /* --green-button-bg:	hsl(140, 38%, 59%); */
   --green-button-bg: hsl(145,61%,35%);
+  --black-button-bg: hsl(200, 19%, 18%);
+  /* --photo-overlay: hsla(0, 0%, 0%, 0.08); */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --text-primary: hsl(0, 0%, 100%);
+    --text-primary-inverted: hsl(0, 0%, 0%);
     /* --bg-primary:  hsl(0, 0%, 0%); */
     --bg-primary:  	hsl(200, 19%, 18%);
     --bg-secondary: hsl(0, 0%, 10%);
@@ -42,6 +46,8 @@ a:hover  {
     --table-border: hsl(0, 0%, 13%);
     --link-color: hsl(209, 63%, 51%);
     --green-button-bg: hsl(145,61%,35%);
+    --black-button-bg: hsl(0, 0%, 100%);
+    /* --photo-overlay: hsla(0, 0%, 100%, 0.08); */
     /* --bg-primary:  	hsl(200, 19%, 18%); */
   }
 }
@@ -203,6 +209,20 @@ main {
   font-size: 18px;
 }
 
+.into-section__button-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.into-section__button-row > * {
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+.into-section__button-row > *:last-child {
+  margin-right: 0;
+} 
+
 /* .result-section {
   padding: 0 15px;
   margin: 0 -15px;
@@ -353,7 +373,7 @@ main {
 
 
 .green-button {
-  padding: 12px 12px;
+  padding: 12px;
   border-radius: 6px;
   /* background: #70bf8a; */
   background: var(--green-button-bg, hsl(145,61%,35%));
@@ -375,6 +395,8 @@ main {
   /* background: #ddd; */
   background: var(--table-border, hsl(0, 0%, 87%));
   cursor: pointer;
+  color: var(--text-primary, hsl(0, 0%, 0%));
+  font-weight: bold;
   transition: opacity 0.3s ease;
   line-height: 0;
 }
@@ -385,6 +407,21 @@ main {
 
 .gray-button:disabled {
   opacity: 0.7;
+}
+
+.black-button {
+  padding: 12px;
+  border-radius: 6px;
+  /* background: #70bf8a; */
+  background: var( --black-button-bg, hsl(200, 19%, 18%));
+  color: var(--text-primary-inverted, hsl(0, 0%, 100%));
+  font-size: 16px;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.black-button:hover {
+  opacity: 0.8;
 }
 
 .footer {
@@ -461,6 +498,98 @@ main {
   #group-b {
     background-size: 180%;
   }
+}
+
+#group-b {
+  position: relative;
+}
+
+#group-b::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(assets/group-b-bottom-bg.svg);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 30%;
+  /* background-size: 50%; */
+  z-index: -1;
+}
+
+.photo-gallery-section {
+  padding: 40px 0;
+  background-image: url(assets/photos-top-bg-4.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  /* background-size: 60%; */
+  background-size: 30%;
+}
+
+.photo-gallery-section__title {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.photo-gallery-section__subtitle {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+@media (max-width: 800px) {
+  #group-b::before {
+    background-size: 50%;
+  }
+  .photo-gallery-section {
+    background-size: 60%
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 200px);
+  /* grid-template-rows: repeat(auto-fill, 200px); */
+  gap: 20px;
+}
+
+@media (max-width: 800px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(auto-fill, 100px); */
+    grid-template-rows: repeat(16, 150px);
+  /* grid-template-rows: repeat(8, 200px); */
+
+  }
+}
+
+.gallery__thumbnail {
+  /* background: pink; */
+  /* position: relative; */
+  transition: opacity 0.3s ease;
+}
+
+/* .gallery__thumbnail::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--photo-overlay, hsla(0, 0%, 0%, 0.08));
+} */
+
+.gallery__thumbnail:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.gallery__thumbnail__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .sections-separator {

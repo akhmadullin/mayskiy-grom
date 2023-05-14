@@ -9,6 +9,7 @@ import TeamGroupA from './team-competition-result/team-group-a';
 import PersonalGroupBBoys from './personal-competition-result/personal-group-b-boys';
 import PersonalGroupBGirls from './personal-competition-result/personal-group-b-girls';
 import TeamGroupB from './team-competition-result/team-group-b';
+import PhotoGallerySection from './photo-gallery';
 
 const App: FC = () => {
     return (
@@ -26,6 +27,7 @@ const App: FC = () => {
                     <PersonalGroupBGirls />
                     <TeamGroupB />
                 </GroupSection>
+                <PhotoGallerySection id="photo-gallery" />
             </main>
             <Footer />
         </>
