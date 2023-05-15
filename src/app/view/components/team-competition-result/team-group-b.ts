@@ -1,9 +1,9 @@
 import TeamCompetitionResultSection from './views/team-competition-result-section';
 import { TeamCompetitionType } from '../../../domain/competition-type';
-import withTeamCompetitionResult from './with-team-competition-result';
+import withTeamCompetitionResultReadyData from './with-team-competition-result-ready-data';
 
 const title = "Группа B | Командный забег";
 
-const TeamGroupB = withTeamCompetitionResult(TeamCompetitionResultSection, title, TeamCompetitionType.GroupB);
+const TeamGroupB = withTeamCompetitionResultReadyData(TeamCompetitionResultSection, title, TeamCompetitionType.GroupB);
 
 export default TeamGroupB;

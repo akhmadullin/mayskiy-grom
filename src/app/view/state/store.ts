@@ -4,8 +4,6 @@ import reducer from './reducer';
 import { loadPersonalCompetitionResult } from './slices/personal-competition-result-slice';
 import { loadTeamCompetitionResult } from './slices/team-competition-result-slice';
 import { PersonalCompetitionType, TeamCompetitionType } from '../../domain/competition-type';
-import { PersonalCompetitionResultLoaderFromGoogleSheets } from '../../infrastructure/personal-competition-result-loader-from-google-sheets'
-import { TeamCompetitionResultLoaderFromGoogleSheets } from '../../infrastructure/team-competition-result-loader-from-google-sheets'
 
 const store = configureStore({
     reducer,

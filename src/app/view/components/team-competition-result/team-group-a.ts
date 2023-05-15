@@ -1,6 +1,6 @@
 import TeamCompetitionResultSection from './views/team-competition-result-section';
 import { TeamCompetitionType } from '../../../domain/competition-type';
-import withTeamCompetitionResult from './with-team-competition-result';
+import withTeamCompetitionResultReadyData from './with-team-competition-result-ready-data';
 
 const title = "Группа A | Командный забег";
 
@@ -40,6 +40,6 @@ const title = "Группа A | Командный забег";
 //     },
 // ];
 
-const TeamGroupA = withTeamCompetitionResult(TeamCompetitionResultSection, title, TeamCompetitionType.GroupA);
+const TeamGroupA = withTeamCompetitionResultReadyData(TeamCompetitionResultSection, title, TeamCompetitionType.GroupA);
 
 export default TeamGroupA;

@@ -40,10 +40,10 @@
 
 import PersonalCompetitionResultSection from './views/personal-competition-result-section';
 import { PersonalCompetitionType } from '../../../domain/competition-type';
-import withPersonalCompetitionResult from './with-personal-competition-result';
+import withPersonalCompetitionResultReadyData from './with-personal-competition-result-ready-data';
 
 const title = "Группа A | Юноши | Личный забег";
 
-const PersonalGroupABoys = withPersonalCompetitionResult(PersonalCompetitionResultSection, title, PersonalCompetitionType.GroupABoys);
+const PersonalGroupABoys = withPersonalCompetitionResultReadyData(PersonalCompetitionResultSection, title, PersonalCompetitionType.GroupABoys);
 
 export default PersonalGroupABoys;

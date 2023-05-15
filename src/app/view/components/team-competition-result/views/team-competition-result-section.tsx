@@ -5,7 +5,7 @@ import TeamCompetitionResultTable from './team-competition-result-table';
 export interface TeamCompetitionResultSectionProps {
     title: string;
     data: TeamCompetitionResult
-    updateButton: ReactElement;
+    updateButton?: ReactElement;
 };
 
 const TeamCompetitionResultSection: FC<TeamCompetitionResultSectionProps> = ({ title, data, updateButton }) => {
@@ -16,9 +16,11 @@ const TeamCompetitionResultSection: FC<TeamCompetitionResultSectionProps> = ({ t
                     <h3 className="mb-15">
                         {title}
                     </h3>
-                    <div className="mb-15">
-                        {updateButton}
-                    </div>
+                    {updateButton && (
+                        <div className="mb-15">
+                            {updateButton}
+                        </div>
+                    )}
                 </div>
             </div>
             <TeamCompetitionResultTable data={data} />
